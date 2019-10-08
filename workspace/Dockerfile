@@ -57,6 +57,7 @@ RUN set -xe; \
       #
       # next lines are here becase there is no auto build on dockerhub see https://github.com/laradock/laradock/pull/1903#issuecomment-463142846
       libzip-dev zip unzip \
+      wget \
       # Install the zip extension
       php${LARADOCK_PHP_VERSION}-zip \
       # nasm
