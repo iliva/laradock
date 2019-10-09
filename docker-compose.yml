@@ -229,8 +229,14 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+          aliases:
+            - gvv.test
+            - gvv-api.test
+        backend:
+          aliases:
+            - gvv.test
+            - gvv-api.test
 
 ### MariaDB ##############################################
     mariadb:

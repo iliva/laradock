@@ -757,6 +757,10 @@ RUN if [ ${INSTALL_FAKETIME} = true ]; then \
     echo "/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1" > /etc/ld.so.preload \
 ;fi
 
+# Fixes SQLSTATE[08001]: [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x2746
+# for gvv-api when connecting to TravelStudio MSSQL server
+RUN sed -i -E "s/(CipherString\s*=\s*DEFAULT@SECLEVEL=)2/\11/" /etc/ssl/openssl.cnf
+
 WORKDIR /var/www
 
 CMD ["php-fpm"]
