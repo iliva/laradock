@@ -149,3 +149,10 @@ function fs() {
 		du $arg .[^.]* ./*;
 	fi;
 }
+
+get_git_branch() {
+     git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+# denis: included git branch, full path
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\] \$(get_git_branch)\[\033[00m\] $ "
