@@ -1,3 +1,2 @@
 *.conf
-!gvv.conf
-!gvv-api.conf
+!karina.conf
